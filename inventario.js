@@ -1,4 +1,4 @@
-var crypto = require("crypto");
+var crypto = require("node:crypto");
 var https = require("https");
 var childProcess = require("child_process");
 
