@@ -65,36 +65,27 @@ function calcularValorTotal(inventario) {
 }
 
 function aplicarDescuento(producto, tipoCliente) {
-  if (tipoCliente == "vip") {
-    if (producto.precio > 100) {
-      if (producto.stock > 10) {
-        if (producto.precio > 500) {
-          if (producto.stock > 50) {
-            producto.precio = producto.precio - (producto.precio * 0.30);
-          } else {
-            producto.precio = producto.precio - (producto.precio * 0.25);
-          }
+    var descuento = 0;
+
+    if (tipoCliente == "vip") {
+        if (producto.precio > 500 && producto.stock > 50) {
+            descuento = 0.30;
+        } else if (producto.precio > 100 && producto.stock > 10) {
+            descuento = 0.25;
+        } else if (producto.precio > 100) {
+            descuento = 0.15;
+        } else if (producto.stock > 10) {
+            descuento = 0.10;
         } else {
-          producto.precio = producto.precio - (producto.precio * 0.25);
+            descuento = 0.05;
         }
-      } else {
-        producto.precio = producto.precio - (producto.precio * 0.15);
-      }
-    } else {
-      if (producto.stock > 10) {
-        producto.precio = producto.precio - (producto.precio * 0.10);
-      } else {
-        producto.precio = producto.precio - (producto.precio * 0.05);
-      }
+    } else if (tipoCliente == "regular") {
+        descuento = producto.precio > 100 ? 0.08 : 0.03;
     }
-  } else if (tipoCliente == "regular") {
-    if (producto.precio > 100) {
-      producto.precio = producto.precio - (producto.precio * 0.08);
-    } else {
-      producto.precio = producto.precio - (producto.precio * 0.03);
-    }
-  }
-  return producto;
+
+    producto.precio = producto.precio - (producto.precio * descuento);
+
+    return producto;
 }
 
 function validarProducto(producto) {
