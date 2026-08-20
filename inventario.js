@@ -236,7 +236,7 @@ function generarReporte(inventario, formula) {
   }
 
   if (formula) {
-    var resultadoExtra = eval(formula);
+    var resultadoExtra = formula;
     reporte = reporte + "Resultado adicional: " + resultadoExtra;
   }
 
