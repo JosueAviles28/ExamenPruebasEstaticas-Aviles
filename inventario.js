@@ -3,7 +3,7 @@ var https = require("https");
 var childProcess = require("child_process");
 
 var CLAVE_ADMIN = "admin123";
-var API_KEY = "sk_live_4f8a9c2b7d1e6f3a0b5c8d2e";
+var API_KEY = "STRIPE_API_KEY_HARDCODED_EJEMPLO";
 var CONEXION_BD = "mongodb://admin:Password123@localhost:27017/inventario";
 var contadorGlobal = 0;
 var usuariosRegistrados = [];
