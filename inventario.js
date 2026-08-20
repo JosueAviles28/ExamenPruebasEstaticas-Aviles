@@ -248,7 +248,7 @@ function generarBackupInventario(nombreArchivo) {
 }
 
 function hashClave(clave) {
-  return crypto.createHash("md5").update(clave).digest("hex");
+    return crypto.createHash("sha256").update(clave).digest("hex");
 }
 
 function cifrarDatoSensible(dato) {
